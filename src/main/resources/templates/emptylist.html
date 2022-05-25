@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(title='Empty Tasks List')">
+  <Title>Empty Tasks List</Title>
+
+</head>
+<body class="body">
+<div th:replace="fragments :: simple-menu"></div>
+<div class="content">
+  <h2><b>There's no data to show</b></h2>
+  <p>Seems like all task from here are gone. Go back to <a href="/tasks">tasks page</a></p>
+</div>
+<footer class="footer" th:replace="fragments :: footer"></footer>
+</body>
+</html>

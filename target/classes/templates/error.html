@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments :: head(title='Error')">
+    <Title>Error</Title>
+  </head>
+  <body class="body">
+    <div th:replace="fragments :: simple-menu"></div>
+    <div class="content">
+      <h2><b>Page does not exist!</b></h2>
+      <p>Check out url path once again or go back to <a href="/">main page</a></p>
+    </div>
+    <footer class="footer" th:replace="fragments :: footer"></footer>
+  </body>
+</html>

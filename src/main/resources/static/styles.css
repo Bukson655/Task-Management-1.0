@@ -1,0 +1,28 @@
+.header, footer {
+    display: block;
+    text-align: center;
+    background-color: #4ddde0;
+    max-width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+
+footer {
+    position:static;
+    bottom:0;
+    width:100%;
+    height:100px;
+}
+
+.content, .form {
+    padding: 30px 30px 30px 30px;
+    background-color: aliceblue;
+    max-width: 100%;
+}
+
+.body {
+    background-color: #4ddde0;
+}
+
+h2, p {
+    text-align: center;
+}

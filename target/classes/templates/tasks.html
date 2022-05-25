@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments :: head(title='Tasks')">
+    <title>Tasks</title>
+  </head>
+  <body class="body">
+    <div class="header" id="top">
+      <a th:replace="fragments :: logo"></a>
+      <div class="menu">
+        <a href="/add-task"><button type="button" class="btn btn-primary">Add new task</button></a>
+        <a href="/tasks?show=done-tasks"><button type="button" class="btn btn-success">Check done tasks</button></a>
+        <a href="/tasks?show=active-tasks"><button type="button" class="btn btn-danger">Check active tasks</button></a>
+        <a href="/tasks?show=all-tasks"><button type="button" class="btn btn-dark">Check all tasks</button></a>
+      </div><br/>
+      <div class="sorting-menu">
+      </div>
+    </div>
+    <div class="content">
+      <h2 th:if="${#request.getParameter('show') eq 'done-tasks'}"><b>Done tasks:</b></h2>
+      <h2 th:if="${#request.getParameter('show') eq 'active-tasks'}"><b>Active tasks:</b></h2>
+      <h2 th:if="${#request.getParameter('show') eq 'all-tasks'}"><b>All tasks:</b></h2>
+      <h2 th:if="${#request.getParameter('show') eq null}"><b>All tasks:</b></h2>
+      <table class="table table-hover">
+        <thead>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Category</th>
+          <th>Deadline</th>
+          <th>Modify Options</th>
+        </thead>
+        <tbody th:each="taskDto: ${tasks}">
+          <td th:text="${taskDto.name}">Name</td>
+          <td th:text="${taskDto.description}">Description</td>
+          <td th:text="${taskDto.status.description}">Status</td>
+          <td th:text="${taskDto.category.description}">Category</td>
+          <td th:text="${taskDto.deadline}">Date</td>
+          <td>
+            <a th:href="@{/modify-task(id= ${taskDto.id})}" title="Edit Task">&#9999;</a>&nbsp;&nbsp;
+            <a th:href="@{/delete-task(id= ${taskDto.id})}" title="Delete Task"
+               onclick="return confirm('Please confrim to delete this task, otherwise cancel');">&#10006;</a>&nbsp;&nbsp;
+            <a th:href="@{/switch-status(id= ${taskDto.id})}" title="Change status"
+               onclick="return confirm('Please confrim to change status of this task, otherwise cancel');">&#10004;</a>
+          </td>
+        </tbody>
+      </table>
+    </div>
+    <footer class="footer" th:replace="fragments :: footer"></footer>
+  </body>
+</html>

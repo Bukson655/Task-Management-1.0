@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments::head(title='Task Management v1.0')">
+    <title>Task Management v1.0</title>
+  </head>
+  <body class="body">
+    <div th:replace="fragments :: simple-menu"></div>
+    <div class="content">
+      <h2><b>Main Page of Task Management v1.0</b></h2>
+      <p>Use menu in header to manage tasks</p>
+    </div>
+    <footer class="footer" th:replace="fragments :: footer"></footer>
+  </body>
+</html>
